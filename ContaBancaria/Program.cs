@@ -53,16 +53,17 @@ namespace ContaBancaria
                 {
                     case 1:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
-
                         Console.WriteLine("Criar Conta: ");
-
                         Console.ResetColor();
+                        KeyPress();
 
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Listar todas as Contas");
                         Console.ResetColor();
+
+                        KeyPress();
 
 
                         break;
@@ -71,36 +72,43 @@ namespace ContaBancaria
                         Console.WriteLine("Consultar dados da Conta - por número");
                         Console.ResetColor();
 
+                        KeyPress();
+
                         break;
                     case 4:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Atualizar dados da Conta");
                         Console.ResetColor();
 
+                        KeyPress();
                         break;
                     case 5:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Apagar a Conta");
                         Console.ResetColor();
 
+                        KeyPress();
                         break;
                     case 6:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Saque");
                         Console.ResetColor();
 
+                        KeyPress();
                         break;
                     case 7:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Depósito");
                         Console.ResetColor();
 
+                        KeyPress();
                         break;
                     case 8:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("Transferência entre Contas");
                         Console.ResetColor();
 
+                        KeyPress();
                         Sobre();
 
                         break;
