@@ -10,13 +10,14 @@ namespace ContaBancaria.model
 {
     public class Conta
     {
+        /*Atributos*/
         private int numero;
         private int agencia;
         private int tipo;
         private string titular = string.Empty;
         private decimal saldo;
 
-        /*Metodo Construtor*/
+        /*Método Construtor*/
         public Conta(int numero, int agencia, int tipo, string titular, decimal saldo)
         {
             this.numero = numero;
@@ -25,6 +26,8 @@ namespace ContaBancaria.model
             this.titular = titular;
             this.saldo = saldo;
         }
+        //Polimorfismo de Sobrecarga
+        public Conta() {}
 
         /*Métodos Get e Set*/
         public int GetNumero()
@@ -105,9 +108,9 @@ namespace ContaBancaria.model
                     tipo = "Conta poupança";
                     break;
             }
-            Console.WriteLine("**********************************************");
+            Console.WriteLine("**********************************************\n");
             Console.WriteLine("Dados da conta");
-            Console.WriteLine("**********************************************");
+            Console.WriteLine("**********************************************\n");
             Console.WriteLine($"Número da conta: {this.numero}");
             Console.WriteLine($"Número da agencia: {this.agencia}");
             Console.WriteLine($"Tipo da conta: {tipo}");

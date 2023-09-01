@@ -59,8 +59,8 @@ namespace ContaBancaria
 
                 if (opcao == 9)
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                    Console.WriteLine("Obrigado por usar o Banco Udbank");
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("                           Obrigado por usar o Banco Udbank");
                     Sobre();
                     Console.ResetColor();
                     System.Environment.Exit(0);
@@ -146,9 +146,9 @@ namespace ContaBancaria
         {
 
             Console.WriteLine("*********************************************************************");
-            Console.WriteLine("                    Projeto Desenvolvido por: Udson Costa            ");
-            Console.WriteLine("                         udsoncostasantana@gmail.com                 ");
-            Console.WriteLine("                        Github: github.com/udsoncosta                ");
+            Console.WriteLine("                    Projeto Desenvolvido por: Udson Costa ");
+            Console.WriteLine("                         udsoncostasantana@gmail.com");
+            Console.WriteLine("                        Github: github.com/udsoncosta");
             Console.WriteLine("*********************************************************************");
 
 
