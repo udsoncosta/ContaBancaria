@@ -25,29 +25,47 @@ namespace ContaBancaria
 
             c1.Visualizar();
 
+            ContaCorrente cc1 = new ContaCorrente(5, 345, 1, "Joao", 10000000.00M, 1000.00M);
+            cc1.Visualizar();
+
+            cc1.Sacar(20000000.00M);
+
+            cc1.Depositar(5000);
+
+            cc1.Visualizar();
+
+            ContaPoupanca cc2 = new ContaPoupanca(2, 678, 2, "Raquel", 100000.0M, 15);
+            cc2.Visualizar();
+
+            cc2.Sacar(20000.00M);
+
+            cc2.Depositar(5000);
+
+            cc2.Visualizar();
+
 
             while (true)
             {
 
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
        
-                Console.WriteLine("*****************************************************");
-                Console.WriteLine("                                                     ");
-                Console.WriteLine("                BANCO UDBANK                         ");
-                Console.WriteLine("                                                     ");
-                Console.WriteLine("*****************************************************");
-                Console.WriteLine("                                                     ");
-                Console.WriteLine("           1 - Criar Conta                           ");
-                Console.WriteLine("           2 - Listar todas as contas                ");
-                Console.WriteLine("           3 - Buscar conta por número               ");
-                Console.WriteLine("           4 - Atualizar dados da conta              ");
-                Console.WriteLine("           5 - Apagar conta                          ");
-                Console.WriteLine("           6 - Sacar                                 ");
-                Console.WriteLine("           7 - Depositar                             ");
-                Console.WriteLine("           8 - Transferir valores entre contas       ");
-                Console.WriteLine("           9 - Sair                                  ");
-                Console.WriteLine("                                                     ");
-                Console.WriteLine("*****************************************************");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine("$                                                    $");
+                Console.WriteLine("$                BANCO UDBANK                        $");
+                Console.WriteLine("$                                                    $");
+                Console.WriteLine("******************************************************");
+                Console.WriteLine("$                                                    $");
+                Console.WriteLine("$           1 - Criar Conta                          $");
+                Console.WriteLine("$           2 - Listar todas as contas               $");
+                Console.WriteLine("$           3 - Buscar conta por número              $");
+                Console.WriteLine("$           4 - Atualizar dados da conta             $");
+                Console.WriteLine("$           5 - Apagar conta                         $");
+                Console.WriteLine("$           6 - Sacar                                $");
+                Console.WriteLine("$           7 - Depositar                            $");
+                Console.WriteLine("$           8 - Transferir valores entre contas      $");
+                Console.WriteLine("$           9 - Sair                                 $");
+                Console.WriteLine("$                                                    $");
+                Console.WriteLine("******************************************************");
                 Console.WriteLine("                                                     ");
                 Console.ResetColor();
                 Console.WriteLine("                                                     ");
