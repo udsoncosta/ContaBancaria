@@ -1,4 +1,5 @@
-﻿using ContaBancaria.model;
+﻿using ContaBancaria.Controller;
+using ContaBancaria.model;
 using System;
 
 namespace ContaBancaria
@@ -8,47 +9,22 @@ namespace ContaBancaria
         private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
         {
-            int opcao;
+            int opcao, agencia, tipo, aniversario;
+            string? titular;
+            decimal saldo, limite;
 
-            Conta c1 = new Conta(1, 123, 1, "Udson", 1000000.0M);
+            ContaController contas = new ();
 
+            ContaCorrente cc1 = new ContaCorrente(contas.GerarNumero(), 345, 1, "Joao", 10000000.00M, 1000.00M);
+            contas.Cadastrar(cc1);
 
-            c1.Visualizar();
-            c1.SetNumero(345);
-            c1.Visualizar();
-
-            c1.Sacar(1000);
-
-            c1.Visualizar();
-
-            c1.Depositar(5000);
-
-            c1.Visualizar();
-
-            ContaCorrente cc1 = new ContaCorrente(5, 345, 1, "Joao", 10000000.00M, 1000.00M);
-            cc1.Visualizar();
-
-            cc1.Sacar(20000000.00M);
-
-            cc1.Depositar(5000);
-
-            cc1.Visualizar();
-
-            ContaPoupanca cc2 = new ContaPoupanca(2, 678, 2, "Raquel", 100000.0M, 15);
-            cc2.Visualizar();
-
-            cc2.Sacar(20000.00M);
-
-            cc2.Depositar(5000);
-
-            cc2.Visualizar();
+            ContaPoupanca cp1 = new ContaPoupanca(contas.GerarNumero(), 123, 2, "Laura", 10000000.00M, 30);
+            contas.Cadastrar(cp1);
 
 
             while (true)
             {
-
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
-       
                 Console.WriteLine("******************************************************");
                 Console.WriteLine("$                                                    $");
                 Console.WriteLine("$                BANCO UDBANK                        $");
@@ -88,19 +64,55 @@ namespace ContaBancaria
                 {
                     case 1:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
-                        Console.WriteLine("/nCriar Conta: ");
+                        Console.WriteLine("\nCriar Conta:\n\n ");
                         Console.ResetColor();
-                        KeyPress();
 
+                        Console.WriteLine("Digite o número da agência: ");
+                        agencia = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o nome do titular: ");
+                        titular = Console.ReadLine();
+
+                        titular ??= string.Empty;
+
+                        do
+                        {
+                            Console.WriteLine("Digite o tipo da conta:  \n 1 - Conta Corrente \n 2 - Conta Poupança ");
+                            tipo = Convert.ToInt32(Console.ReadLine());
+
+                        } while (tipo != 1 && tipo != 2);
+
+                        Console.WriteLine("Digite o saldo da conta: ");
+                        saldo = Convert.ToDecimal(Console.ReadLine());
+
+                        switch (tipo)
+                        {
+                            case 1:
+                                Console.WriteLine("Digite o limite da conta: ");
+                                limite = Convert.ToDecimal(Console.ReadLine());
+
+                                contas.Cadastrar(new ContaCorrente(contas.GerarNumero(), agencia, tipo, titular, saldo, limite));
+                                break;
+
+                            case 2:
+                                Console.WriteLine("Digite dia do aniversário da conta: ");
+                                aniversario = Convert.ToInt32(Console.ReadLine());
+
+
+                                contas.Cadastrar(new ContaPoupanca(contas.GerarNumero(), agencia, tipo, titular, saldo, aniversario));
+                                break;
+                        }
+
+                        KeyPress();
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("/nListar todas as Contas");
                         Console.ResetColor();
 
+                        contas.ListarTodas();
+
                         KeyPress();
-
-
                         break;
                     case 3:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -108,7 +120,6 @@ namespace ContaBancaria
                         Console.ResetColor();
 
                         KeyPress();
-
                         break;
                     case 4:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -156,20 +167,15 @@ namespace ContaBancaria
                         break;
                 }
             }
-
-
         }
         static void Sobre()
 
         {
-
             Console.WriteLine("*********************************************************************");
             Console.WriteLine("                    Projeto Desenvolvido por: Udson Costa ");
             Console.WriteLine("                         udsoncostasantana@gmail.com");
             Console.WriteLine("                        Github: github.com/udsoncosta");
             Console.WriteLine("*********************************************************************");
-
-
         }
         static void KeyPress()
         {

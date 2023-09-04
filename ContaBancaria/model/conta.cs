@@ -4,11 +4,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ContaBancaria.model
 {
-    public class Conta
+    public abstract class Conta
     {
         /*Atributos*/
         private int numero;
@@ -28,8 +27,7 @@ namespace ContaBancaria.model
         }
 
         //Polimorfismo de sobrecarga
-        public Conta()
-        { }
+        public Conta() { }
 
         /*Métodos Get e Set*/
         public int GetNumero()

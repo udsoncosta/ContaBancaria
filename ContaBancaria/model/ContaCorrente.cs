@@ -37,9 +37,7 @@ namespace ContaBancaria.model
             this.SetSaldo(this.GetSaldo() - valor);
             return true;
         }
-
-    
-        public override void Visualizar()
+         public override void Visualizar()
         {
             base.Visualizar();
             Console.WriteLine($"Limite da conta: {this.limite}");
