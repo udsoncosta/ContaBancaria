@@ -29,15 +29,15 @@ namespace ContaBancaria.model
         //Polimorfismo de sobrescrita
         public override bool Sacar(decimal valor)
         {
-            if (this.GetSaldo() + this.limite < valor)
+            if (this.GetSaldo() + this.limite >= valor)
             {
-                Console.WriteLine("\n Saldo insuficiente!");
-                return false;
+                this.SetSaldo(this.GetSaldo() - valor);
+                return true;
             }
-            this.SetSaldo(this.GetSaldo() - valor);
-            return true;
+            Console.WriteLine("\n Saldo insuficiente!");
+            return false;
         }
-         public override void Visualizar()
+        public override void Visualizar()
         {
             base.Visualizar();
             Console.WriteLine($"Limite da conta: {this.limite}");
