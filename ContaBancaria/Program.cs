@@ -24,7 +24,8 @@ namespace ContaBancaria
 
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                
                 Console.WriteLine("******************************************************");
                 Console.WriteLine("$                                                    $");
                 Console.WriteLine("$                BANCO UDBANK                        $");
@@ -42,7 +43,7 @@ namespace ContaBancaria
                 Console.WriteLine("$           9 - Sair                                 $");
                 Console.WriteLine("$                                                    $");
                 Console.WriteLine("******************************************************");
-                Console.WriteLine("                                                     ");
+                Console.WriteLine("                                                      ");
                 Console.ResetColor();
                 Console.WriteLine("                                                     ");
                 Console.WriteLine("Digite a opção desejada:");
@@ -63,8 +64,9 @@ namespace ContaBancaria
 
                 if (opcao == 9)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("                           Obrigado por usar o Banco Udbank");
+                  
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.WriteLine("            Obrigado por usar o Banco Udbank");
                     Sobre();
                     Console.ResetColor();
                     System.Environment.Exit(0);
@@ -73,7 +75,8 @@ namespace ContaBancaria
                 switch (opcao)
                 {
                     case 1:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nCriar Conta:\n\n ");
                         Console.ResetColor();
 
@@ -116,7 +119,8 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 2:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("/nListar todas as Contas");
                         Console.ResetColor();
 
@@ -125,7 +129,8 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 3:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nConsultar dados da Conta por número");
                         Console.ResetColor();
 
@@ -137,7 +142,8 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 4:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nAtualizar dados da Conta");
                         Console.ResetColor();
 
@@ -198,7 +204,8 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 5:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nApagar a Conta");
                         Console.ResetColor();
 
@@ -208,21 +215,24 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 6:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nSaque");
                         Console.ResetColor();
 
                         KeyPress();
                         break;
                     case 7:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nDepósito");
                         Console.ResetColor();
 
                         KeyPress();
                         break;
                     case 8:
-                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nTransferência entre Contas");
                         Console.ResetColor();
 
@@ -243,11 +253,12 @@ namespace ContaBancaria
         static void Sobre()
 
         {
-            Console.WriteLine("*********************************************************************");
-            Console.WriteLine("                    Projeto Desenvolvido por: Udson Costa ");
-            Console.WriteLine("                         udsoncostasantana@gmail.com");
-            Console.WriteLine("                        Github: github.com/udsoncosta");
-            Console.WriteLine("*********************************************************************");
+            Console.WriteLine("********************************************************");
+            Console.WriteLine("           Projeto Desenvolvido por: Udson Costa        ");
+            Console.WriteLine("               udsoncostasantana@gmail.com              ");
+            Console.WriteLine("              Github: github.com/udsoncosta             ");
+            Console.WriteLine("********************************************************");
+            Console.WriteLine("                                              ");
         }
         static void KeyPress()
         {
