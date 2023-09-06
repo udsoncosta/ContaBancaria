@@ -9,9 +9,9 @@ namespace ContaBancaria
         private static ConsoleKeyInfo consoleKeyInfo;
         static void Main(string[] args)
         {
-            int opcao, agencia, tipo, aniversario, numero;
+            int opcao, agencia, tipo, aniversario, numero, numeroDestino;
             string? titular;
-            decimal saldo, limite;
+            decimal saldo, limite, valor;
 
             ContaController contas = new ();
 
@@ -24,30 +24,31 @@ namespace ContaBancaria
 
             while (true)
             {
-                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                                                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 
-                Console.WriteLine("******************************************************");
-                Console.WriteLine("$                                                    $");
-                Console.WriteLine("$                BANCO UDBANK                        $");
-                Console.WriteLine("$                                                    $");
-                Console.WriteLine("******************************************************");
-                Console.WriteLine("$                                                    $");
-                Console.WriteLine("$           1 - Criar Conta                          $");
-                Console.WriteLine("$           2 - Listar todas as contas               $");
-                Console.WriteLine("$           3 - Buscar conta por número              $");
-                Console.WriteLine("$           4 - Atualizar dados da conta             $");
-                Console.WriteLine("$           5 - Apagar conta                         $");
-                Console.WriteLine("$           6 - Sacar                                $");
-                Console.WriteLine("$           7 - Depositar                            $");
-                Console.WriteLine("$           8 - Transferir valores entre contas      $");
-                Console.WriteLine("$           9 - Sair                                 $");
-                Console.WriteLine("$                                                    $");
-                Console.WriteLine("******************************************************");
-                Console.WriteLine("                                                      ");
-                Console.ResetColor();
-                Console.WriteLine("                                                     ");
-                Console.WriteLine("Digite a opção desejada:");
-                Console.WriteLine("                                                     ");
+                                          Console.WriteLine("******************************************************");
+                                          Console.WriteLine("$                                                    $");
+                                          Console.WriteLine("$                BANCO UDBANK                        $");
+                                          Console.WriteLine("$                                                    $");
+                                          Console.WriteLine("******************************************************");
+                                          Console.WriteLine("$                                                    $");
+                                          Console.WriteLine("$           1 - Criar Conta                          $");
+                                          Console.WriteLine("$           2 - Listar todas as contas               $");
+                                          Console.WriteLine("$           3 - Buscar conta por número              $");
+                                          Console.WriteLine("$           4 - Atualizar dados da conta             $");
+                                          Console.WriteLine("$           5 - Apagar conta                         $");
+                                          Console.WriteLine("$           6 - Sacar                                $");
+                                          Console.WriteLine("$           7 - Depositar                            $");
+                                          Console.WriteLine("$           8 - Transferir valores entre contas      $");
+                                          Console.WriteLine("$           9 - Sair                                 $");
+                                          Console.WriteLine("$                                                    $");
+                                          Console.WriteLine("******************************************************");
+                                          Console.WriteLine("                                                      ");
+                                          Console.ResetColor();
+                                          Console.WriteLine("                                                     ");
+                                          Console.WriteLine("Digite a opção desejada:");
+                                          Console.WriteLine("                                                     ");
+                                          Console.ResetColor();
 
                 //Tratamento de exceção para impedir a digitação de strings
                 try
@@ -67,16 +68,16 @@ namespace ContaBancaria
                   
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.WriteLine("            Obrigado por usar o Banco Udbank");
-                    Sobre();
                     Console.ResetColor();
+                    Sobre();
+                    
                     System.Environment.Exit(0);
                 }
 
                 switch (opcao)
                 {
                     case 1:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nCriar Conta:\n\n ");
                         Console.ResetColor();
 
@@ -119,9 +120,8 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 2:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("/nListar todas as Contas");
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine("\nListar todas as Contas");
                         Console.ResetColor();
 
                         contas.ListarTodas();
@@ -129,8 +129,7 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 3:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nConsultar dados da Conta por número");
                         Console.ResetColor();
 
@@ -142,8 +141,7 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 4:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nAtualizar dados da Conta");
                         Console.ResetColor();
 
@@ -204,8 +202,7 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 5:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nApagar a Conta");
                         Console.ResetColor();
 
@@ -215,29 +212,52 @@ namespace ContaBancaria
                         KeyPress();
                         break;
                     case 6:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nSaque");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o número da Conta: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor do saque: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Sacar(numero, valor);
 
                         KeyPress();
                         break;
                     case 7:
                         Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nDepósito");
                         Console.ResetColor();
+
+                        Console.WriteLine("Digite o número da Conta: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor do depósito: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Depositar(numero, valor);
 
                         KeyPress();
                         break;
                     case 8:
-                        Console.BackgroundColor = ConsoleColor.DarkBlue;
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nTransferência entre Contas");
                         Console.ResetColor();
 
-                        KeyPress();
-                        Sobre();
+                        Console.WriteLine("Digite o número da Conta de Origem: ");
+                        numero = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o número da Conta de Destino: ");
+                        numeroDestino = Convert.ToInt32(Console.ReadLine());
+
+                        Console.WriteLine("Digite o valor da Transferência: ");
+                        valor = Convert.ToDecimal(Console.ReadLine());
+
+                        contas.Transferir(numero, numeroDestino, valor);
+
+                        KeyPress();                       
 
                         break;
                     default:
@@ -264,7 +284,7 @@ namespace ContaBancaria
         {
             do
             {
-                Console.WriteLine("Pressione enter se deseja continuar: ");
+                Console.WriteLine("\nPressione enter se deseja continuar: ");
                 consoleKeyInfo = Console.ReadKey();
             }
             while (consoleKeyInfo.Key != ConsoleKey.Enter);
